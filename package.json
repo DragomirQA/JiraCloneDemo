@@ -1,0 +1,22 @@
+{
+  "name": "jiraclonedemo",
+  "version": "1.0.0",
+  "description": "QA Engineer Task - VortexWest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DragomirQA/JiraCloneDemo.git"
+  },
+  "author": "Dragomir Ilic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DragomirQA/JiraCloneDemo/issues"
+  },
+  "homepage": "https://github.com/DragomirQA/JiraCloneDemo#readme",
+  "devDependencies": {
+    "cypress": "^13.17.0"
+  }
+}
