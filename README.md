@@ -1,7 +1,5 @@
 # JiraCloneDemo
 
-# JiraCloneDemo
-
 # 🌲 Cypress End-to-End Tests
 
 This project contains E2E tests written with [Cypress](https://www.cypress.io/), a JavaScript end-to-end testing framework for modern web apps.
@@ -14,7 +12,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed.
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/your-org/your-repo.git
+   git clone https://github.com/DragomirQA/JiraCloneDemo.git
    cd your-repo
    ```
 
