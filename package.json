@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/DragomirQA/JiraCloneDemo#readme",
   "devDependencies": {
-    "cypress": "^13.17.0"
+    "cypress": "^14.2.1",
+    "globals": "^16.0.0"
   }
 }
