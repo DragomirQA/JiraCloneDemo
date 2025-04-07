@@ -1,12 +1,14 @@
 /// <reference types = 'Cypress' />
 
+/// <reference types = 'Cypress' />
+
 import IssueCardPage from '../poms/issueCardPage';
 import KanbanBoardPage from '../poms/kanbanBoardPage';
 
 const kanbanBoardPage = new KanbanBoardPage();
 const issueCardPage = new IssueCardPage();
 
-describe('Delete issue tests', () => {
+describe('Change issue status', () => {
   beforeEach('Test setup', () => {
     cy.visit('https://jira.trungk18.com/');
     kanbanBoardPage.clickCreateIssueIcon();
@@ -15,10 +17,18 @@ describe('Delete issue tests', () => {
     kanbanBoardPage.assertIssueIsCreated('Short summary');
   });
 
-  it('Should delete issue', () => {
-    kanbanBoardPage.openIssue('Short summary');
+  afterEach('Test cleanup', () => {
+    kanbanBoardPage.openIssueInDevelopment('Short summary');
     issueCardPage.clickDeleteButton();
     issueCardPage.clickConfirmDeleteButton();
-    kanbanBoardPage.assertIssueIsNotVisible('Short summary');
+    kanbanBoardPage.assertIssueIsNotVisibleInDevelopment('Short summary');
+  });
+
+  it('Should change status from Backlog to Selected for development', () => {
+    kanbanBoardPage.openIssue('Short summary');
+    issueCardPage.clickStatusButton();
+    issueCardPage.selectStatus('Selected for Development');
+    issueCardPage.clickCloseIssueButton();
+    kanbanBoardPage.assertIssueIsInSelectedForDevelopment('Short summary');
   });
 });
