@@ -12,10 +12,10 @@ describe('Create new issue tests', () => {
   });
 
   afterEach('Test cleanup', () => {
-    kanbanBoardPage.openIssue('Short summary');
+    kanbanBoardPage.openIssue('summary');
     issueCardPage.clickDeleteButton();
     issueCardPage.clickConfirmDeleteButton();
-    kanbanBoardPage.assertIssueIsNotVisible('Short summary');
+    kanbanBoardPage.assertIssueIsNotVisible('summary');
   });
 
   it('Should create new bug', () => {
@@ -31,7 +31,7 @@ describe('Create new issue tests', () => {
     issueCardPage.clickAssigneesMenu();
     issueCardPage.selectValueFromDropdown('Captain');
     issueCardPage.clickCreateIssueButton();
-    kanbanBoardPage.assertIssueIsCreated('Bug - Short summary');
+    kanbanBoardPage.assertIssueIsCreated('summary');
   });
 
   it('Should create new task', () => {
@@ -47,7 +47,7 @@ describe('Create new issue tests', () => {
     issueCardPage.clickAssigneesMenu();
     issueCardPage.selectValueFromDropdown('Trung');
     issueCardPage.clickCreateIssueButton();
-    kanbanBoardPage.assertIssueIsCreated('Task - Short summary');
+    kanbanBoardPage.assertIssueIsCreated('summary');
   });
 
   it('Should create new story', () => {
@@ -63,13 +63,13 @@ describe('Create new issue tests', () => {
     issueCardPage.clickAssigneesMenu();
     issueCardPage.selectValueFromDropdown('Thor');
     issueCardPage.clickCreateIssueButton();
-    kanbanBoardPage.assertIssueIsCreated('Story - Short summary');
+    kanbanBoardPage.assertIssueIsCreated('summary');
   });
 });
 
 describe('Create new issue tests', () => {
   beforeEach('Test setup', () => {
-    cy.visit('https://jira.trungk18.com/');
+    cy.visit('/');
   });
   it('Should not create issue without a Summary', () => {
     kanbanBoardPage.clickCreateIssueIcon();

@@ -1,9 +1,16 @@
-import { defineConfig } from "cypress";
+const { defineConfig } = require('cypress');
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
-export default defineConfig({
+module.exports = defineConfig({
   e2e: {
+    baseUrl: 'https://jira.trungk18.com',
+    specPattern: 'cypress/e2e/tests/**/*.cy.{js,jsx,ts,tsx}',
+    supportFile: 'cypress/support/e2e.js',
+    video: true,
+    screenshotOnRunFailure: true,
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      allureWriter(on, config);
+      return config;
     },
   },
 });

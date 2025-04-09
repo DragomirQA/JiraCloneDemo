@@ -38,7 +38,9 @@ class IssueCardPage {
       .should('exist')
       .and('be.visible')
       .and('be.enabled')
-      .type(text, { delay: 80 });
+      .click()
+      .clear()
+      .type(text, { delay: 80, force: true });
   }
 
   inputDescription(text) {

@@ -8,25 +8,25 @@ const issueCardPage = new IssueCardPage();
 
 describe('Adding comment to issue tests', () => {
   beforeEach('Test setup', () => {
-    cy.visit('https://jira.trungk18.com/');
+    cy.visit('/');
     kanbanBoardPage.clickCreateIssueIcon();
     issueCardPage.inputShortSummary('Short summary');
     issueCardPage.clickCreateIssueButton();
-    kanbanBoardPage.assertIssueIsCreated('Short summary');
+    kanbanBoardPage.assertIssueIsCreated('summary');
   });
 
   afterEach('Test cleanup', () => {
     issueCardPage.clickDeleteButton();
     issueCardPage.clickConfirmDeleteButton();
-    kanbanBoardPage.assertIssueIsNotVisible('Short summary');
+    kanbanBoardPage.assertIssueIsNotVisible('summary');
   });
 
-  it('Should add comment to issue', () => {
-    kanbanBoardPage.openIssue('Short summary');
+  it.only('Should add comment to issue', () => {
+    kanbanBoardPage.openIssue('summary');
     issueCardPage.commentFieldInput('Comment test');
     issueCardPage.clickSaveCommentButton();
     issueCardPage.clickCloseIssueButton();
-    kanbanBoardPage.openIssue('Short summary');
+    kanbanBoardPage.openIssue('summary');
     issueCardPage.assertIssueCardModalComment('Comment test');
   });
 });

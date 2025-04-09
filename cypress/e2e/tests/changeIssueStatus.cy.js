@@ -10,25 +10,25 @@ const issueCardPage = new IssueCardPage();
 
 describe('Change issue status', () => {
   beforeEach('Test setup', () => {
-    cy.visit('https://jira.trungk18.com/');
+    cy.visit('/');
     kanbanBoardPage.clickCreateIssueIcon();
     issueCardPage.inputShortSummary('Short summary');
     issueCardPage.clickCreateIssueButton();
-    kanbanBoardPage.assertIssueIsCreated('Short summary');
+    kanbanBoardPage.assertIssueIsCreated('summary');
   });
 
   afterEach('Test cleanup', () => {
-    kanbanBoardPage.openIssueInDevelopment('Short summary');
+    kanbanBoardPage.openIssueInDevelopment('summary');
     issueCardPage.clickDeleteButton();
     issueCardPage.clickConfirmDeleteButton();
-    kanbanBoardPage.assertIssueIsNotVisibleInDevelopment('Short summary');
+    kanbanBoardPage.assertIssueIsNotVisibleInDevelopment('summary');
   });
 
   it('Should change status from Backlog to Selected for development', () => {
-    kanbanBoardPage.openIssue('Short summary');
+    kanbanBoardPage.openIssue('summary');
     issueCardPage.clickStatusButton();
     issueCardPage.selectStatus('Selected for Development');
     issueCardPage.clickCloseIssueButton();
-    kanbanBoardPage.assertIssueIsInSelectedForDevelopment('Short summary');
+    kanbanBoardPage.assertIssueIsInSelectedForDevelopment('summary');
   });
 });

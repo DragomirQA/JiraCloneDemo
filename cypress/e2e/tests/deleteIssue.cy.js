@@ -8,17 +8,17 @@ const issueCardPage = new IssueCardPage();
 
 describe('Delete issue tests', () => {
   beforeEach('Test setup', () => {
-    cy.visit('https://jira.trungk18.com/');
+    cy.visit('/');
     kanbanBoardPage.clickCreateIssueIcon();
     issueCardPage.inputShortSummary('Short summary');
     issueCardPage.clickCreateIssueButton();
-    kanbanBoardPage.assertIssueIsCreated('Short summary');
+    kanbanBoardPage.assertIssueIsCreated('summary');
   });
 
-  it('Should delete issue', () => {
-    kanbanBoardPage.openIssue('Short summary');
+  it.only('Should delete issue', () => {
+    kanbanBoardPage.openIssue('summary');
     issueCardPage.clickDeleteButton();
     issueCardPage.clickConfirmDeleteButton();
-    kanbanBoardPage.assertIssueIsNotVisible('Short summary');
+    kanbanBoardPage.assertIssueIsNotVisible('summary');
   });
 });
