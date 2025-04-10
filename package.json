@@ -4,7 +4,11 @@
   "description": "QA Engineer Task - VortexWest",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:chrome:headless": "npx cypress run --browser=chrome --headless --spec cypress/e2e/tests/**/*.js --reporter mocha-allure-reporter",
+    "test:chrome:headed": "npx cypress run --browser=chrome --headed --spec cypress/e2e/tests/**/*.js --reporter mocha-allure-reporter",
+    "clean:allure:report": "rm -rf allure-results allure-report",
+    "generate:allure:report": "npx allure generate allure-results --clean -o allure-report",
+    "open:allure:report": "npx allure open allure-report"
   },
   "repository": {
     "type": "git",
